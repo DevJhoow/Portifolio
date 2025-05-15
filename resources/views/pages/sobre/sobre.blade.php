@@ -1,5 +1,34 @@
 @extends('welcome')
 
 @section('content')
-    <h2> teste da pagina sobre </h2>
+    <section class="container my-5">
+    <div class="row align-items-center">
+        <!-- Foto -->
+        <div class="col-md-4 text-center">
+            <img src="" alt="Foto" class="img-fluid rounded-circle shadow" width="200">
+        </div>
+
+        <!-- Texto sobre -->
+        <div class="col-md-8">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Sou o Jhow, desenvolvedor PHP/Laravel apaixonado por tecnologia, sempre buscando aprender e evoluir. Estou estudando Análise e Desenvolvimento de Sistemas e aplicando na prática projetos como e-commerce, controle de entregas, entre outros.</p>
+            <p>Tenho interesse em desenvolvimento backend, banco de dados, e gosto de trabalhar com lógica e desafios!</p>
+            <a href=" " class="btn btn-primary me-2" target="_blank">Ver Currículo</a>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="mt-5">
+        <h4>Minhas Skills</h4>
+        <ul class="list-group list-group-horizontal-sm">
+            <li class="list-group-item"><i class="fab fa-html5 text-danger"></i> HTML</li>
+            <li class="list-group-item"><i class="fab fa-css3-alt text-primary"></i> CSS</li>
+            <li class="list-group-item"><i class="fab fa-js text-warning"></i> JavaScript</li>
+            <li class="list-group-item"><i class="fab fa-php text-info"></i> PHP</li>
+            <li class="list-group-item"><i class="fas fa-database text-success"></i> MySQL</li>
+            <li class="list-group-item"><i class="fab fa-laravel text-danger"></i> Laravel</li>
+        </ul>
+    </div>
+</section>
+
 @endsection

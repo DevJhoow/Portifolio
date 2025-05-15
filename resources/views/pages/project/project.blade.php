@@ -8,12 +8,12 @@
             <div class="col-md-6">
                 <div class="card mb-3 bg-primary text-white">
                     <div class="card-body">
-                        <h5 class="card-title">Calculadora</h5>
-                        <p class="card-text">Projeto simples de calculadora em JavaScript.</p>
+                        <h5 class="card-title">Gerenciamento de vendas</h5>
+                        <p class="card-text">Projeto criado ultilizando Laravel, ambiente Docker</p>
                         <a href="https://meuprojeto1.com" target="_blank" rel="noopener noreferrer" class="btn btn-light">
                             Ver Projeto
                         </a>
-                        <a href="https://github.com/seuusuario/calculadora" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light ms-2" title="Ver no GitHub">
+                        <a href="https://github.com/DevJhoow/Gerenciamento-de-venda" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light ms-2" title="Ver no GitHub">
                             <i class="fab fa-github"></i> GitHub
                         </a>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="card mb-3 bg-warning text-dark">
                     <div class="card-body">
                         <h5 class="card-title">Relógio Digital</h5>
-                        <p class="card-text">Relógio com JavaScript e CSS.</p>
+                         <p class="card-text">Lista de tarefas feita com Laravel.</p>
                         <a href="https://meuprojeto3.com" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
                             Ver Projeto
                         </a>
@@ -54,7 +54,10 @@
                 <div class="card mb-3 bg-info text-white">
                     <div class="card-body">
                         <h5 class="card-title">e-Commerce Gamer</h5>
-                        <p class="card-text">Projeto só com HTML e CSS.</p>
+                        <p class="card-text">
+                            <i class="fab fa-html5 fa-2x me-2" title="HTML5"></i>
+                            <i class="fab fa-css3-alt fa-2x" title="CSS3"></i>
+                        </p>
                         <a href="https://e-comerce-gamer.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-light">
                             Ver Projeto
                         </a>

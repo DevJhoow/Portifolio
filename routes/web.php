@@ -3,6 +3,7 @@
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\FacuController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SobreController;
 use Illuminate\Support\Facades\Route;
