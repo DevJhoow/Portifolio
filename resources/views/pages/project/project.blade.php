@@ -56,7 +56,8 @@
                         <h5 class="card-title">e-Commerce Gamer</h5>
                         <p class="card-text">
                             <i class="fab fa-html5 fa-2x me-2" title="HTML5"></i>
-                            <i class="fab fa-css3-alt fa-2x" title="CSS3"></i>
+                            <i class="fab fa-css3-alt fa-2x me-2" title="CSS3"></i>
+                            <i class="fab fa-laravel fa-2x" title="Laravel"></i>
                         </p>
                         <a href="https://e-comerce-gamer.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-light">
                             Ver Projeto

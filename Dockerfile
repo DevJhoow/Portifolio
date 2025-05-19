@@ -17,3 +17,7 @@ COPY . .
 
 # Permissão de escrita (opcional)
 RUN chmod -R 755 /var/www
+
+RUN apt-get update && apt-get install -y \
+    zip unzip git curl libzip-dev libpq-dev \
+    && docker-php-ext-install zip pdo pdo_pgsql

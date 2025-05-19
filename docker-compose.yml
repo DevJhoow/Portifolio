@@ -1,4 +1,3 @@
-# docker-compose.yml
 version: "3.8"
 
 services:
@@ -13,3 +12,27 @@ services:
       - "8000:8000"
     working_dir: /var/www
     command: php artisan serve --host=0.0.0.0 --port=8000
+    networks:
+      - laravel   # <-- Aqui adiciona a rede app
+
+  db:
+    image: postgres:16
+    container_name: portifolio-db
+    restart: always
+    environment:
+      POSTGRES_DB: portifolio
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5433:5432"  # <-- porta externa 5433 redirecionando para a 5432 do container
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - laravel
+
+volumes:
+  pgdata:
+
+networks:
+  laravel:
+    driver: bridge
