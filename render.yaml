@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: laravel-app
+    env: docker
+    plan: free
+    branch: main  # troque se seu branch for outro
+    dockerfilePath: Dockerfile
+    buildCommand: "composer install"
+    startCommand: >
+      php artisan config:cache &&
+      php artisan migrate --force &&
+      php artisan serve --host 0.0.0.0 --port 10000
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: dpg-d0g0pgruibrs73E5aeo0-a  # pego do Render (hostname)
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: laravel_d40x
+      - key: DB_USERNAME
+        value: root
+      - key: DB_PASSWORD
+        value: 7TlEP1OowYKB14pePQzuWoKjaxsA1sx

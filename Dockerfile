@@ -1,10 +1,9 @@
-# Dockerfile
 FROM php:8.2-cli
 
-# Instala extensões e ferramentas necessárias
+# Instala dependências necessárias
 RUN apt-get update && apt-get install -y \
-    zip unzip git curl libzip-dev \
-    && docker-php-ext-install zip pdo pdo_mysql
+    zip unzip git curl libzip-dev libpq-dev \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql zip
 
 # Instala o Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -12,12 +11,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Define a pasta de trabalho
 WORKDIR /var/www
 
-# Copia os arquivos (depois que o Laravel estiver criado)
+# Copia os arquivos do projeto
 COPY . .
 
-# Permissão de escrita (opcional)
+# Permissão (opcional)
 RUN chmod -R 755 /var/www
-
-RUN apt-get update && apt-get install -y \
-    zip unzip git curl libzip-dev libpq-dev \
-    && docker-php-ext-install zip pdo pdo_pgsql
