@@ -24,7 +24,7 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
     ports:
-      - "5433:5432"  # <-- porta  rs externa 5433 redirecionando para a 5432 do container
+      - "5433:5432"  # <-- porta externa 5433 redirecionando para a 5432 do container
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
