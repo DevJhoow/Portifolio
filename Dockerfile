@@ -25,8 +25,9 @@
 # # Comando para rodar o Laravel
 # CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 
-FROM php:8.2-fpm-alpine
+FROM php:8.2-cli-alpine
 
+# Instala dependências
 RUN apk add --no-cache \
     bash \
     curl \
@@ -43,18 +44,27 @@ RUN apk add --no-cache \
     icu-dev \
     && docker-php-ext-install zip gd intl
 
+# Instala o Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+# Define o diretório de trabalho
 WORKDIR /var/www
 
+# Copia os arquivos
 COPY . .
 
+# Instala dependências PHP
 RUN composer install --no-interaction --optimize-autoloader
 
+# Ajusta permissões
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage
 
-EXPOSE 9000
+# Gera chave do Laravel (você pode remover se já tiver no .env)
+RUN php artisan key:generate
 
-CMD ["php-fpm"]
+# Expõe a porta 8000 (usada pelo artisan serve)
+EXPOSE 8000
 
+# Inicia o servidor Laravel
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
