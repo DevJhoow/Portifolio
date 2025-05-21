@@ -12,6 +12,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Ativa o mod_rewrite do Apache para o Laravel funcionar
 RUN a2enmod rewrite
 
+# Permissões para Laravel (força write em storage e cache)
+RUN chown -R www-data:www-data /var/www/html && \
+    chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
+
 # Configura o DocumentRoot para a pasta /public
 ENV APACHE_DOCUMENT_ROOT /var/www/public
 
@@ -25,11 +29,11 @@ WORKDIR /var/www
 COPY . .
 
 # Instala as dependências do Laravel e faz cache das rotas/views
-RUN composer install --no-dev --optimize-autoloader \
-    && php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache \
-    && chmod -R 775 storage bootstrap/cache
+# RUN composer install --no-dev --optimize-autoloader \
+#     && php artisan config:cache \
+#     && php artisan route:cache \
+#     && php artisan view:cache \
+#     && chmod -R 775 storage bootstrap/cache
 
 # Expõe a porta padrão do Apache
 EXPOSE 80
