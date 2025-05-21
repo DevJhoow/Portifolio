@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/var/www
     ports:
-      - "8000:80"  # Apache expõe a porta 80 dentro do container
+      - "8000:9000"  # Apache expõe a porta 80 dentro do container
     working_dir: /var/www
     depends_on:
       - db
