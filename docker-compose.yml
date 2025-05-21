@@ -1,39 +1,14 @@
-version: "3.8"
+version: '3.8'
 
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: portifolio-app
+    container_name: laravel-app
+    ports:
+      - "8000:8000"
     volumes:
       - .:/var/www
-    ports:
-      - "8000:8000"  # Apache expõe a porta 80 dentro do container
     working_dir: /var/www
-    depends_on:
-      - db
-    networks:
-      - laravel
-
-  db:
-    image: postgres:16
-    container_name: portifolio-db
-    restart: always
-    environment:
-      POSTGRES_DB: portifolio
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-    ports:
-      - "5433:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
-      - laravel
-
-volumes:
-  pgdata:
-
-networks:
-  laravel:
-    driver: bridge
+    command: php artisan serve --host=0.0.0.0 --port=8000

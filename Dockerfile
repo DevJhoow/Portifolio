@@ -1,33 +1,5 @@
-# FROM php:8.2-cli
+FROM php:8.2-fpm-alpine
 
-# # Instala dependências do sistema
-# RUN apt-get update && apt-get install -y \
-#     git curl zip unzip libzip-dev libonig-dev \
-#     && docker-php-ext-install pdo pdo_pgsql zip
-
-# # Instala Composer
-# COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# # Define diretório de trabalho
-# WORKDIR /var/www
-
-# # Copia os arquivos do projeto
-# COPY . .
-
-# # Instala dependências do Laravel
-# RUN composer install --no-dev --optimize-autoloader \
-#     && php artisan config:cache \
-#     && chmod -R 775 storage bootstrap/cache
-
-# # Expõe a porta
-# EXPOSE 8000
-
-# # Comando para rodar o Laravel
-# CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
-
-FROM php:8.2-cli-alpine
-
-# Instala dependências
 RUN apk add --no-cache \
     bash \
     curl \
@@ -44,24 +16,24 @@ RUN apk add --no-cache \
     icu-dev \
     && docker-php-ext-install zip gd intl
 
-# Instala o Composer
+
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Define o diretório de trabalho
+
 WORKDIR /var/www
 
-# Copia os arquivos
+
 COPY . .
 
-# Instala dependências PHP
+
 RUN composer install --no-interaction --optimize-autoloader
 
-# Ajusta permissões
+RUN php artisan config:clear && php artisan route:cache
+
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage
 
 
-# Expõe a porta do PHP
 EXPOSE 8000
 
-CMD ["php-fpm"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
