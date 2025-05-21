@@ -59,10 +59,9 @@ RUN composer install --no-interaction --optimize-autoloader
 # Ajusta permissões
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage
-    
 
-# Expõe a porta 8000 (usada pelo artisan serve)
+
+# Expõe a porta do PHP
 EXPOSE 8000
 
-# Inicia o servidor Laravel
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+CMD ["php-fpm"]
