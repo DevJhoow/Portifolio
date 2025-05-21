@@ -59,9 +59,7 @@ RUN composer install --no-interaction --optimize-autoloader
 # Ajusta permissões
 RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage
-
-# Gera chave do Laravel (você pode remover se já tiver no .env)
-RUN php artisan key:generate
+    
 
 # Expõe a porta 8000 (usada pelo artisan serve)
 EXPOSE 8000
