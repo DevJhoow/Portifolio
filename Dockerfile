@@ -1,42 +1,26 @@
-# Imagem base com Apache
-FROM php:8.2-apache
+FROM php:8.2-cli
 
-# Instala dependências do sistema e extensões PHP
+# Instala dependências do sistema
 RUN apt-get update && apt-get install -y \
-    git unzip zip curl libzip-dev libonig-dev \
-    && docker-php-ext-install pdo pdo_mysql zip
+    git curl zip unzip libzip-dev libonig-dev \
+    && docker-php-ext-install pdo pdo_pgsql zip
 
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Ativa o mod_rewrite do Apache para o Laravel funcionar
-RUN a2enmod rewrite
-
-# Permissões para Laravel (força write em storage e cache)
-RUN chown -R www-data:www-data /var/www/html && \
-    chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Configura o DocumentRoot para a pasta /public
-ENV APACHE_DOCUMENT_ROOT /var/www/public
-
-# Atualiza o virtual host do Apache
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
-
-# Define o diretório de trabalho
+# Define diretório de trabalho
 WORKDIR /var/www
 
-# Copia os arquivos do projeto Laravel
+# Copia os arquivos do projeto
 COPY . .
 
-# Instala as dependências do Laravel e faz cache das rotas/views
-# RUN composer install --no-dev --optimize-autoloader \
-#     && php artisan config:cache \
-#     && php artisan route:cache \
-#     && php artisan view:cache \
-#     && chmod -R 775 storage bootstrap/cache
+# Instala dependências do Laravel
+RUN composer install --no-dev --optimize-autoloader \
+    && php artisan config:cache \
+    && chmod -R 775 storage bootstrap/cache
 
-# Expõe a porta padrão do Apache
-EXPOSE 80
+# Expõe a porta
+EXPOSE 8000
 
-# Usa o comando padrão do Apache
-CMD ["apache2-foreground"]
+# Comando para rodar o Laravel
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
