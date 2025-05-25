@@ -63,21 +63,12 @@
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">Desenvolvimento Mobile</h5>
-                    <p class="card-text">Criação de aplicativos com interface amigável, estudando Flutter ou outras ferramentas híbridas/nativas.</p>
+                    <p class="card-text">Criação de aplicativos com interface amigável</p>
                     
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6 mb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Projeto de Extensão II</h5>
-                    <p class="card-text">Projeto prático com aplicação dos conhecimentos adquiridos no curso. Envolve análise, desenvolvimento e entrega de sistema real ou simulado.</p>
-                
-                </div>
-            </div>
-        </div>
 </section>
 
 @endsection

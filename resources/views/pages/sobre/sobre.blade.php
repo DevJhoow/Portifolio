@@ -5,15 +5,14 @@
     <div class="row align-items-center">
         <!-- Foto -->
         <div class="col-md-4 text-center">
-            <img src="" alt="Foto" class="img-fluid rounded-circle shadow" width="200">
+            <img src="" alt="Foto brevemente " class="img-fluid rounded-circle shadow" width="200">
         </div>
 
         <!-- Texto sobre -->
         <div class="col-md-8">
             <h2>Sobre Mim</h2>
-            <p>Olá! Sou o Jhow, desenvolvedor PHP/Laravel apaixonado por tecnologia, sempre buscando aprender e evoluir. Estou estudando Análise e Desenvolvimento de Sistemas e aplicando na prática projetos como e-commerce, controle de entregas, entre outros.</p>
+            <p>Olá! Sou o desenvolvedor PHP/Laravel apaixonado por tecnologia, sempre buscando aprender e evoluir. Estou estudando Análise e Desenvolvimento de Sistemas e aplicando na prática projetos pessoais.</p>
             <p>Tenho interesse em desenvolvimento backend, banco de dados, e gosto de trabalhar com lógica e desafios!</p>
-            <a href=" " class="btn btn-primary me-2" target="_blank">Ver Currículo</a>
         </div>
     </div>
 
