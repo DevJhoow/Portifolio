@@ -9,7 +9,11 @@
                 <div class="card mb-3 bg-primary text-white">
                     <div class="card-body">
                         <h5 class="card-title">Gerenciamento de vendas</h5>
-                        <p class="card-text">Projeto criado ultilizando Laravel, ambiente Docker</p>
+                        <p class="card-text">
+                            <i class="fab fa-laravel fa-2x" title="Laravel"></i>
+                            <i class="fab fa-docker fa-2x" title="Docker"></i>
+                            <i class="fab fa-bootstrap fa-2x" title="Bootstrap"></i>
+                        </p>
                         <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-light">
                             sem deploy
                         </a>

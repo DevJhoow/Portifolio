@@ -5,7 +5,7 @@
     <div class="row align-items-center">
         <!-- Foto -->
         <div class="col-md-4 text-center">
-            <img src="" alt="Foto brevemente " class="img-fluid rounded-circle shadow" width="200">
+            <img src="" alt="Foto brevemente" class="img-fluid rounded-circle shadow" width="200">
         </div>
 
         <!-- Texto sobre -->
