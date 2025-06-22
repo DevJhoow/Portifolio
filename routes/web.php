@@ -5,7 +5,6 @@ use App\Http\Controllers\FacuController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\SobreController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,13 +20,6 @@ Route::prefix('home')->controller(HomeController::class)->group(function () {
 
 Route::prefix('project')->controller(ProjectController::class)->group(function () {
     Route::get('/', 'index')->name('index.project');
-    Route::post('/', 'store');
-    Route::put('/{id}', 'update');
-    Route::delete('/{id}', 'destroy');
-});
-
-Route::prefix('sobre')->controller(SobreController::class)->group(function () {
-    Route::get('/', 'index')->name('index.sobre');
     Route::post('/', 'store');
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');

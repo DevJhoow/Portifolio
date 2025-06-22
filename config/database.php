@@ -31,6 +31,11 @@ return [
 
     'connections' => [
 
+        // 'null' => [
+        //         'driver' => 'null',
+        //     ],
+
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
@@ -60,6 +65,7 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+
         ],
 
         'mariadb' => [
@@ -112,6 +118,7 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+         
     ],
 
     /*
