@@ -2,14 +2,13 @@
     
     {{-- Topo da sidebar --}}
     <div class="w-100 text-center">
+        
         {{-- Avatar GitHub --}}
-        @if ($githubAvatar)
             <div class="mb-4">
-                <img src="{{ $githubAvatar }}" alt="Avatar GitHub"
+                <img src="{{ asset('image/j.jpg') }}" alt="Avatar "
                      class="img-fluid rounded"
                      style="width: 100px; height: 100px; object-fit: cover; border: 2px solid white;">
             </div>
-        @endif
 
         {{-- Links principais --}}
         <div class="d-flex flex-column align-items-center">

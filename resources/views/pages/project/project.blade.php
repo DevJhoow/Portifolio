@@ -14,7 +14,7 @@
     </style>
 
     <div class="container">
-        <h2 class="mb-4">Meus Projetos do GitHub</h2>
+        <h2 class="mb-4">Meus Projetos </h2>
         <div class="row">
             @forelse($repositorios as $repo)
                 <div class="col-md-6">

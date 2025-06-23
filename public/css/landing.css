@@ -1,0 +1,27 @@
+/* .landing-page {
+    background: url('/images/bg-welcome.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    padding: 20px;
+}
+
+.landing-page h1,
+.landing-page p {
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+} */
+
+
+.landing-page {
+    height: 100vh;
+    background-color: #121212; /* Fundo escuro */
+    padding: 20px;
+}
+
+.landing-page h1,
+.landing-page p {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+body {
+    background-color: #121212; /* Garante fundo escuro completo */
+}

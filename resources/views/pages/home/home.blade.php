@@ -1,5 +1,5 @@
 @extends('welcome')
 
 @section('content')
-   <h1> teste home</h1>
+    <h2> teste conteudos da home </h2>
 @endsection

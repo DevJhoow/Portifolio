@@ -8,10 +8,14 @@ use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('template');
 });
 
-Route::prefix('home')->controller(HomeController::class)->group(function () {
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('home');
+
+Route::prefix('welcome')->controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index.home');
     Route::post('/', 'store');
     Route::put('/{id}', 'update');
