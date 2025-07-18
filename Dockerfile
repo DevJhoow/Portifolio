@@ -34,13 +34,8 @@ RUN mkdir -p storage/framework/{sessions,views,cache} \
     && mkdir -p bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-RUN cp .env.example .env || true    
-
 # Instala as dependências do Laravel
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
-
-# Expõe a porta 8000 para o Laravel
-EXPOSE 8000
 
 # Comando para rodar o Laravel
 CMD php artisan serve --host=0.0.0.0 --port=8000
