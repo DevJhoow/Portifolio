@@ -34,6 +34,8 @@ RUN mkdir -p storage/framework/{sessions,views,cache} \
     && mkdir -p bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
+RUN cp .env.example .env || true    
+
 # Instala as dependências do Laravel
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
