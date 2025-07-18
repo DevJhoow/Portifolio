@@ -23,10 +23,19 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 # Instala Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Define diretório de trabalho
 WORKDIR /var/www
 
+# Copia o projeto para dentro do container
 COPY . .
 
-RUN composer install
+# Garante permissões corretas para o Laravel funcionar
+RUN mkdir -p storage/framework/{sessions,views,cache} \
+    && mkdir -p bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
 
+# Instala as dependências do Laravel
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+# Comando para rodar o Laravel
 CMD php artisan serve --host=0.0.0.0 --port=8000
