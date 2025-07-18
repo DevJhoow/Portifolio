@@ -1,74 +1,71 @@
 @extends('welcome')
 
 @section('content')
-    <section class="container my-5">
-    <h2 class="mb-4">📘 4º Semestre - Análise e Desenvolvimento de Sistemas</h2>
 
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Desenvolvimento Responsivo</h5>
-                    <p class="card-text"> 
-                        Esta unidade apresenta o CSS como linguagem de estilos que permite separar formatação e marcação,
-                         traduzida como “folha de estilo em cascata”. Introduz formas de vincular estilos aos documentos HTML,
-                          ampliando o controle visual das páginas. Por fim, discute os módulos do CSS3, 
-                          que trazem melhorias e novos recursos ao design web.
-                    </p>
-                    
-                </div>
+<section class="container my-5">
+    <h2 class="text-center mb-4">🎓 Matriz Curricular - Análise e Desenvolvimento de Sistemas</h2>
+
+    @php
+        $semestres = [
+            '1º Semestre' => [
+                'Algoritmos e Programação Estruturada' => 'Aprovado',
+                'Análise e Modelagem de Sistemas' => 'Aprovado',
+                'Engenharia de Software' => 'Aprovado',
+                'Linguagem de Programação' => 'Aprovado',
+                'Lógica e Matemática Computacional' => 'Aprovado',
+            ],
+            '2º Semestre' => [
+                'Análise Orientada a Objetos' => 'Aprovado',
+                'Linguagem Orientada a Objetos' => 'Aprovado',
+                'Modelagem de Dados' => 'Aprovado',
+                'Projeto de Extensão I' => 'Aprovado',
+                'Qualidade e Automação de Testes' => 'Aprovado',
+                'Sistemas Operacionais' => 'Aprovado',
+            ],
+            '3º Semestre' => [
+                'Computação em Nuvem' => 'Aprovado',
+                'Governança de Tecnologia' => 'Aprovado',
+                'Green IT' => 'Aprovado',
+                'Programação e Desenvolvimento de Banco de Dados' => 'Aprovado',
+                'Programação Web' => 'Aprovado',
+            ],
+            '4º Semestre' => [
+                'Desenvolvimento em JavaScript' => 'Aprovado',
+                'Desenvolvimento Mobile' => 'Aprovado',
+                'Desenvolvimento Responsivo' => 'Aprovado',
+                'Frameworks para Desenvolvimento de Software' => 'Aprovado',
+                'Projeto de Extensão II' => 'Aprovado',
+                'Sistemas Distribuídos' => 'Aprovado',
+            ],
+            '5º Semestre' => [
+                'Arquitetura e Organização de Computadores' => 'Falta Cursar',
+                'Interface e Usabilidade' => 'Falta Cursar',
+                'Projeto de Software' => 'Falta Cursar',
+                'Redes de Computadores' => 'Falta Cursar',
+                'Segurança e Auditoria de Sistemas' => 'Falta Cursar',
+                'Sociedade Brasileira e Cidadania' => 'Falta Cursar',
+            ],
+        ];
+    @endphp
+
+    @foreach ($semestres as $titulo => $disciplinas)
+        <div class="card mb-4 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">{{ $titulo }}</h5>
             </div>
+            <ul class="list-group list-group-flush">
+                @foreach ($disciplinas as $disciplina => $status)
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ $disciplina }}
+                        <span class="badge bg-{{ $status == 'Aprovado' ? 'success' : 'secondary' }}">
+                            {{ $status }}
+                        </span>
+                    </li>
+                @endforeach
+            </ul>
         </div>
-
-        <div class="col-md-6 mb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Sistemas Distribuídos</h5>
-                    <p class="card-text">
-                        Um sistema distribuído é um conjunto de computadores interconectados que, para o usuário, funcionam como um único sistema .
-                    </p>
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 mb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Desenvolvimento em JavaScript</h5>
-                    <p class="card-text">
-                        Prática com DOM, eventos, lógica, validações e manipulação dinâmica de elementos em páginas web.
-                        É uma das principais linguagens para desenvolvimento web, atuando em conjunto com HTML e CSS para criar aplicações dinâmicas.
-                        É uma linguagem de alto nível, dinâmica, interpretada e fracamente tipada.
-                    </p>
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 mb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Frameworks para Desenvolvimento</h5>
-                    <p class="card-text">
-                        Frameworks são estruturas pré-construídas que fornecem uma arquitetura reutilizável, evitando “reinventar a roda” e acelerando o desenvolvimento de software.
-                        Eles oferecem componentes e padrões prontos, simplificando a criação de projetos e promovendo boas práticas de organização de código.
-                    </p>
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 mb-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">Desenvolvimento Mobile</h5>
-                    <p class="card-text">Criação de aplicativos com interface amigável</p>
-                    
-                </div>
-            </div>
-        </div>
-
+    @endforeach
 </section>
+
 
 @endsection

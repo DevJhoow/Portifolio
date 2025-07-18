@@ -4,14 +4,14 @@
         <i class="bi bi-linkedin"></i> LinkedIn
     </a>
 
-    <!-- Nome centralizado -->
-    <h2 class="mb-0 text-center flex-grow-1" style="font-family: 'Arial Rounded MT Bold', sans-serif;">
-        Dev Jonathan Luis
-    </h2>
-
+    <!-- Texto deslizando no centro -->
+    <marquee behavior="scroll" direction="left" scrollamount="5" style="flex-grow: 1; text-align: center;">
+        Desenvolvedor Laravel ⚙️ | Projetos com PHP, MySQL e JavaScript 💻 | Segurança web e boas práticas 🔐 | Limpo e funcional 🚀 ! 👨‍💻
+    </marquee>
 
     <!-- GitHub à direita -->
     <a href="https://github.com/DevJhoow" target="_blank" class="text-white text-decoration-none">
         <i class="bi bi-github"></i> GitHub
     </a>
 </div>
+
