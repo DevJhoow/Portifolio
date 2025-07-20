@@ -1,13 +1,34 @@
-FROM php:8.2-apache
+FROM php:8.2-fpm
 
-RUN apt-get update && apt-get install -y libzip-dev unzip libonig-dev \
-    && docker-php-ext-install pdo_mysql mbstring zip exif pcntl
+# Instala dependências do sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    locales \
+    zip \
+    unzip \
+    git \
+    curl \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    nginx
 
-COPY . /var/www/html/
+# Instala extensões do PHP
+RUN docker-php-ext-install pdo mbstring zip exif pcntl
 
-RUN chown -R www-data:www-data /var/www/html \
-    && a2enmod rewrite
+# Instala Composer
+COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
-EXPOSE 80
+# Define diretório de trabalho
+WORKDIR /var/www
 
-CMD ["apache2-foreground"]
+COPY . .
+
+RUN chmod -R 777 storage bootstrap/cache
+
+EXPOSE 8000
+
+CMD php artisan serve --host=0.0.0.0 --port=8000
