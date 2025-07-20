@@ -1,7 +1,20 @@
 services:
   - type: web
-    name: php-docker-app
+    name: laravel-app
     env: docker
+    dockerfilePath: Dockerfile
     plan: free
-    dockerfilePath: ./Dockerfile
-    autoDeploy: true
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        # Aqui você pode colocar a chave APP_KEY gerada pelo artisan key:generate
+        value: base64:CHAVE_GERADA_AQUI
+      - key: APP_URL
+        value: https://seu-dominio-ou-url-render.onrender.com
+      # Adicione outras variáveis de ambiente que precisar
+    ports:
+      - port: 9000
+        protocol: tcp
