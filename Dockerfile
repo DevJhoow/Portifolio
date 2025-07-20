@@ -38,4 +38,6 @@ RUN mkdir -p storage/framework/{sessions,views,cache} \
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 # Comando para rodar o Laravel
-CMD php artisan serve --host=0.0.0.0 --port=8000
+CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
+
+
