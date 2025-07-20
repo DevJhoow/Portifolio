@@ -1,43 +1,11 @@
-FROM php:8.2-fpm
+# Usa imagem base com PHP
+FROM php:8.2-apache
 
-# Instala dependências do sistema
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    locales \
-    zip \
-    jpegoptim optipng pngquant gifsicle \
-    vim \
-    unzip \
-    git \
-    curl \
-    libonig-dev \
-    libxml2-dev \
-    libzip-dev
+# Copia os arquivos do projeto para o diretório padrão do Apache
+COPY . /var/www/html/
 
-# Instala extensões do PHP
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+# Define permissões corretas
+RUN chown -R www-data:www-data /var/www/html
 
-# Instala Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Define diretório de trabalho
-WORKDIR /var/www
-
-# Copia o projeto para dentro do container
-COPY . .
-
-# Garante permissões corretas para o Laravel funcionar
-RUN mkdir -p storage/framework/{sessions,views,cache} \
-    && mkdir -p bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
-
-# Instala as dependências do Laravel
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
-
-# Comando para rodar o Laravel
-CMD php artisan serve --host=0.0.0.0 --port=${PORT:-8000}
-
-
+# Expõe a porta 80 (usada pelo Apache)
+EXPOSE 80
