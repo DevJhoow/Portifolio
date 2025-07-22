@@ -1,10 +1,14 @@
 FROM php:8.2-fpm
 
 # Instalar extensões PHP necessárias
-RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip libpng-dev libjpeg-dev libfreetype6-dev \
- && docker-php-ext-configure zip \
- && docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl gd
+
+ RUN apt-get update && apt-get install -y \
+    libzip-dev zip unzip libpng-dev libjpeg-dev libfreetype6-dev libonig-dev
+
+RUN docker-php-ext-configure zip
+
+RUN docker-php-ext-install pdo pdo_mysql mbstring zip exif pcntl gd
+
 
 
  RUN apt-get update && apt-get install -y \
@@ -18,7 +22,7 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Definir diretório de trabalho
-WORKDIR /var/www
+WORKDIR /var/wwwgit 
 
 # Copiar arquivos da aplicação para dentro do container
 COPY . .
