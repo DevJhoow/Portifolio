@@ -23,7 +23,7 @@
         <a href="https://github.com/DevJhoow/Controlle-Financeiro-" target="_blank" class="btn btn-outline-primary">
             <i class="bi bi-github me-1"></i> Ver detalhes
         </a>
-        <a href="https://seu-deploy.com" target="_blank" class="btn btn-success">
+        <a href="https://controlle-financeiro.onrender.com" target="_blank" class="btn btn-success">
             <i class="bi bi-box-arrow-up-right me-1"></i> Ver funcionando
         </a>
     </div>
