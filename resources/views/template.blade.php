@@ -17,7 +17,7 @@
 <body class="bg-dark">
     <div class="landing-page d-flex flex-column justify-content-center align-items-center text-center text-white vh-100">
         <h1 class="display-3 fw-bold shadow-blue"> 
-            <i class="bi bi-person-circle me-2"></i>Jonathan Luís
+            <i class="bi bi-person-circle me-2"></i>Jonathan Luís Rodrigues 
         </h1>
         <p class="lead">
             <i class="bi bi-code-slash me-2"></i>Desenvolvedor Web | PHP • Laravel • MySQL
