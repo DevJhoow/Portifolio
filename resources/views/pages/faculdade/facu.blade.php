@@ -1,8 +1,9 @@
-@extends('welcome')
+@extends('template')
 
 @section('content')
 
-<section class="container my-5">
+<section class="container my-1" style="max-height: 75vh; overflow-y: auto;">
+
     <h2 class="text-center mb-4">🎓 Matriz Curricular - Análise e Desenvolvimento de Sistemas</h2>
 
     @php

@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('template')
 
 @section('content')
     <style>

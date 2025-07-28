@@ -8,37 +8,37 @@ use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('template');
-});
-
-Route::get('/welcome', function () {
     return view('welcome');
-})->name('home');
-
-Route::prefix('welcome')->controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('index.home');
-    Route::post('/', 'store');
-    Route::put('/{id}', 'update');
-    Route::delete('/{id}', 'destroy');
 });
 
-Route::prefix('project')->controller(ProjectController::class)->group(function () {
+Route::get('/template', function () {
+    return view('template');
+})->name('template');
+
+Route::prefix('Home')->controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('index.home');
+    Route::get('/seguranca', 'seguranca')->name('index.security');
+    Route::get('/postman', 'postman')->name('index.postman');
+    Route::get('/phpunit', 'phpunit')->name('index.phpunit');
+    Route::get('/scrum-kanban', 'scrumkanban')->name('index.scrum');
+    Route::get('/phpunit', 'phpunit')->name('index.phpunit');
+    Route::get('/cicd-devops', 'cicddevops')->name('index.cicd');
+    Route::get('/IA', 'ia')->name('index.ia');
+});
+
+Route::prefix('Project')->controller(ProjectController::class)->group(function () {
     Route::get('/', 'index')->name('index.project');
     Route::post('/', 'store');
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
 
-Route::prefix('facu')->controller(FacuController::class)->group(function () {
+Route::prefix('Faculdade')->controller(FacuController::class)->group(function () {
     Route::get('/', 'index')->name('index.facu');
     Route::post('/', 'store');
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
 
-Route::prefix('config')->controller(ConfigController::class)->group(function () {
-    Route::get('/', 'index')->name('index.config');
-    Route::post('/', 'store');
-    Route::put('/{id}', 'update');
-    Route::delete('/{id}', 'destroy');
-});
+// Route::get('/cicd-devops', [PortfolioController::class, 'cicd'])->name('index.cicd');
+

@@ -1,45 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Portifolio-Dev_Jonathan')</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Luís - Entrada</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-
+    
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Seu CSS personalizado -->
+    <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
 </head>
-<body class="vh-100 d-flex flex-column">
+<body class="bg-dark">
+    <div class="landing-page d-flex flex-column justify-content-center align-items-center text-center text-white vh-100">
+        <h1 class="display-3 fw-bold shadow-blue"> 
+            <i class="bi bi-person-circle me-2"></i>Jonathan Luís Rodrigues
+        </h1>
+        <p class="lead">
+            <i class="bi bi-code-slash me-2"></i>Desenvolvedor Web | PHP • Laravel • MySQL
+        </p>
+        <a href="{{ route('template') }}" class="btn btn-outline-light btn-lg mt-4 btn-shadow-blue">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Entrar no Portfólio
+        </a>
 
-    <!-- Cabeçalho -->
-    <header class="bg-light py-3 text-center border-bottom">
-        @include('modulo.cabecalho')
-    </header>
-
-    <!-- Conteúdo -->
-    <div class="flex-grow-1 d-flex">
-
-        <!-- Sidebar -->
-        @include('modulo.navSidebar')
-
-        <!-- Conteúdo principal -->
-        <main class="flex-grow-1 p-4 container">
-            @yield('content')
-        </main>
-    </div>
-
-    <!-- Rodapé -->
-    <footer class="bg-dark text-white py-3">
-        @include('modulo.rodape')
-    </footer>
-
+    </div>  
 </body>
 </html>
