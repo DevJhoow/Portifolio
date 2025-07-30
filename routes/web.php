@@ -11,12 +11,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/template', function () {
-    return view('template');
-})->name('template');
+Route::get('/template', [HomeController::class, 'index'])->name('template');
 
 Route::prefix('Home')->controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('index.home');
+    Route::get('/curso', 'curso')->name('index.curso');
     Route::get('/seguranca', 'seguranca')->name('index.security');
     Route::get('/postman', 'postman')->name('index.postman');
     Route::get('/phpunit', 'phpunit')->name('index.phpunit');

@@ -63,6 +63,10 @@
                         <i class="bi bi-mortarboard-fill me-2"></i> Faculdade
                     </a>
 
+                     <a href="{{ route('index.curso') }}" class="d-flex align-items-center text-white mb-3 text-decoration-none">
+                        <i class="bi bi-book me-2"></i> Cursos
+                    </a>
+
                     <a href="{{ route('index.security') }}" class="d-flex align-items-center text-white mb-3 text-decoration-none">
                         <i class="bi bi-shield-lock-fill me-2"></i> Security/Project
                     </a>
@@ -75,7 +79,7 @@
                         <i class="bi bi-bug-fill me-2"></i> Testes PHPUnit
                     </a>
 
-                     <a href="{{ route('index.scrum') }}" class="d-flex align-items-center text-white mb-3 text-decoration-none"> --}}
+                     <a href="{{ route('index.scrum') }}" class="d-flex align-items-center text-white mb-3 text-decoration-none"> 
                         <i class="bi bi-diagram-3-fill me-2"></i> Scrum & Kanban
                     </a>
                     
@@ -84,8 +88,8 @@
                     </a> 
 
                     <a href="{{ route('index.ia') }}" class="d-flex align-items-center text-white mb-3 text-decoration-none">
-  <i class="bi bi-cpu-fill me-2"></i> IA 
-</a>
+                       <i class="bi bi-cpu-fill me-2"></i> IA 
+                    </a>
                 </div>
             </div>
         </nav>

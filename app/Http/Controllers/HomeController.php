@@ -11,6 +11,11 @@ class HomeController extends Controller
         return view('pages.home');
     }
 
+    public function curso()
+    {
+        return view('pages.cursos');
+    }
+
     public function seguranca()
     {
         return view('pages.security');
